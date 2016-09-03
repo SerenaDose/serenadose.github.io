@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
+    <!--Info-->
+    <meta name="description" content="Serena Dose, web designer, developer, computer science student ">
+<meta name="keywords" content="web designer,developer,web developer,computer science">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="uni/css/materialize.min.css"  media="screen,projection"/>
 
@@ -11,6 +15,10 @@
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
+    <!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="uni/js/materialize.min.js"></script>
+    
 <title> Serena Dose  </title>
     
     
@@ -19,17 +27,48 @@
     h1, h2 { font-family: 'Reenie Beanie', cursive;
         font-weight: 200;
      font-size: -webkit-xxx-large;
-    line-height: 30%;}
+    line-height: 30%;
+    color: #353535;}
     
     h2 {
         font-size: x-large;
     line-height: 100%;}
     
     
-    .btn {background-color:#282826;
+    .btn {background-color:#353535;
     text-transform: none;
     font-weight: 300;
     margin-top: 5%;}
+    
+    .collapsible {
+     border:none;
+   ;
+}
+    
+    
+    .collapsible-header {background-color:#f6f7f0;
+    border-bottom: none;
+    }
+    
+    .collapsible-body {
+   
+    border-bottom: none;
+
+}
+ .collapsible  {
+    box-shadow:none;
+}
+    
+    
+     .collapsible-header img{
+   opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;}
+    
+    .collapsible-header img:hover {-webkit-filter: grayscale(100%);
+	opacity: .7; }
+    
+   
     
     </style>    
    
@@ -38,9 +77,7 @@
 <body style="background-color:#f6f7f0;">
 
 
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="uni/js/materialize.min.js"></script>
+
 
 
 <div class="container " >
@@ -61,5 +98,19 @@
       </div>
 
     </div>
+    
+    
+    <div class="row center" >
+        <div class="col s12 " style="padding-top: 5%;">
+         <ul class="collapsible" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header"> <img width="50px" src="uni/images/music.png"></div>
+      <div class="collapsible-body"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Adnlhndrsnn1996%3Aplaylist%3A2us2gr9ORBV8iawGG83K5k" width="600" height="300" frameborder="0" allowtransparency="true"></iframe></div>
+    </li>
+        
+        </ul>  
+       
+        </div>
+               </div>
 </body>
 </html>
