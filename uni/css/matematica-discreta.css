@@ -3,7 +3,7 @@ body {
 }
 
 a {
-    color: #03A9F4;
+    color: #9C27B0;
   }
 
 
@@ -69,17 +69,21 @@ nav ul {
 
 
 
-.collapsible-body ul {
+.collection-item ol li {
    
-margin-left: 40px;
 padding-top: 20px;
-padding-bottom: 20px;}
+    padding-right: 20px;
+}
+.collection-item ol:last-child {
+   
+padding-bottom: 20px;
+}
 
 
-.collapsible-body ul li{
-    list-style-type: disc;}
+.collection-item ol li{
+        list-style-type: decimal;}
 
-.icon-color { color: #03A9F4;
+.icon-color { color: #9C27B0;
 }
 
 
@@ -96,6 +100,3 @@ padding-bottom: 20px;}
     bottom: 10%;
     left: -2%;}
 
-@media (min-width:300px) and (max-width:640px) {
-
-    #main-info h1 {font-size: 30px;}}
