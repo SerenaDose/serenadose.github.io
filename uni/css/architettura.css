@@ -83,8 +83,11 @@ padding-bottom: 20px;}
 }
 
 
-#mobile-demo li {margin-bottom:10px;}
-#mobile-demo li a {font-weight:300;text-align: center;}
+#mobile-demo li {margin-bottom:5px;
+padding-top:10px;
+padding-bottom: 10px;}
+#mobile-demo li a {font-weight:300;text-align: center;
+font-size: large;}
 
 .fixed-left {transform: rotate(270deg) ;
 -webkit-transform: rotate(270deg) ;
