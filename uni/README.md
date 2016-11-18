@@ -1,48 +1,43 @@
-![alt tag](https://raw.github.com/dogfalo/materialize/master/images/materialize.gif)
-===========
-
-[![Travis CI](https://travis-ci.org/Dogfalo/materialize.svg?branch=master)](https://travis-ci.org/Dogfalo/materialize)[![devDependency Status](https://david-dm.org/Dogfalo/materialize/dev-status.svg)](https://david-dm.org/Dogfalo/materialize#info=devDependencies)[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Dogfalo/materialize?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-[Materialize](http://materializecss.com/), a CSS Framework based on material design
-
-### Current Version : v0.97.7
-
-## Sass Requirements:
-- Ruby Sass 3.3+, LibSass 0.6+
-
-## Supported Browsers:
-Chrome 35+, Firefox 31+, Safari 7+, IE 10+
-
-## Changelog
-- v0.97.7 (July 23rd)
-  - Basic horizontal cards
-  - Carousel bug fixes and new features
-  - Updated sidenav styles and new component
-  - Meteor package now supports Sass
-  - Autocomplete form component
-  - Chips jQuery plugin
-- v0.97.6 (April 1st)
-  - **Removed deprecated material icons from project**
-  - **Changed /font directory to /fonts**
-  - Datepicker and ScrollSpy now compatible with jQuery 2.2.x
-  - Responsive tables now work with empty cells
-  - Added focus states to checkboxes, switches, and radio buttons
-  - Sidenav and Modals no longer cause flicker with scrollbar
-  - Materialbox overflow and z-index issues fixed
-  - Added new option for Card actions within a Card reveal
-- v0.97.5 (Dec 21, 2015)
-  - Fixed Meteor package crash
-- v0.97.4 (Dec 20, 2015)
-  - Added Jasmine testing with Travis CI
-  - Select bugfixes
-  - Grid Offset bugfix
-  - Dropdown overflow bugfix
-  - Range slider error bugfix
+# MaterialeInformaticaUniudPrimoAnno
 
 
+I anno - 2016/2017
 
-## Contributing
-[Please read CONTRIBUTING.md for more information](CONTRIBUTING.md)
+Questa è una repository con i materiali principali dei corsi di Informatica. 
+Penso sia più comodo avere tutto a portata di mano, responsive e con un layout un po' più gradevole.
+Pian piano cercherò di caricare tutto.
 
-## Testing
-We use Jasmine as our testing framework and we're trying to write a robust test suite for our components. If you want to help, [here's a starting guide on how to write tests in Jasmine](https://docs.google.com/document/d/1dVM6qGt_b_y9RRhr9X7oZfFydaJIEqB9CT7yekv-4XE/edit?usp=sharing)
+## Aggiunta di materiale
+
+Potete aggiungere/modificare i file creando una nuova pull request contenente le modifiche o propormi modifiche in classe.
+
+## Cos'ho utilizzato
+
+Per il front-end ho usato [Materialize](https://github.com/Dogfalo/materialize), un framework css basato sul Material Design.
+
+Le lezioni di Programmazione le riformatto in un editror markdown per renderle un po' meno pesanti.
+
+--- 
+# LICENSE
+
+The MIT License (MIT)
+
+Copyright (c) 2014-2016 Materialize
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
