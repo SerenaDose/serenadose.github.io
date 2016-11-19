@@ -79,6 +79,11 @@ padding-top: 20px;
 padding-bottom: 20px;
 }
 
+.collapsible-body ul {
+   
+margin-left: 40px;
+padding-top: 20px;
+padding-bottom: 20px;}
 
 .collection-item ol li{
         list-style-type: decimal;}
