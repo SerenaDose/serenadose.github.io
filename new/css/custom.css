@@ -47,3 +47,24 @@ margin-right: 20px;}
 .top-space {margin-top:30px;}
 .left-space {padding-left:20px;}
 .right-space {padding-right:20px;}
+
+.fixed-left {transform: rotate(270deg) ;
+-webkit-transform: rotate(270deg) ;
+-moz-transform: rotate(270deg) ;
+-o-transform: rotate(270deg) ;
+-ms-transform: rotate(270deg) ;
+       
+    position: fixed;
+    bottom: 10%;
+    left: -40px;}
+
+.fixed-left a {color: #333333}
+@media only screen and (max-width: 600px){
+    .section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+    #work .top-space{margin-top: 0px; }
+    .border-left {border-left-width:0;
+    }
+}
