@@ -1,0 +1,49 @@
+body {font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+color: #333333}
+h2{font-family: 'Open Sans', sans-serif;
+font-weight: 300;}
+
+
+#header { background-image: linear-gradient(to top, #A8EDEA 0%, #CDE3E7 100%);}
+header img {width:200px;}
+.name {font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 0%;
+}
+.description {
+    font-family: 'Reenie Beanie', cursive;
+   font-size: 1.5rem;
+}
+
+#apps img {width: 80px; 
+margin-right: 20px;}
+
+
+#apps h2 {    margin-top: 0.7rem ;}
+
+#apps .app {line-height: 1.2;}
+#apps a{color: #333333;}
+
+.app:hover{color:darkcyan;}
+
+
+
+#work { background-image: linear-gradient(to top, #DFFACD 0%, #ADEFDE 100%);}
+
+.section {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+}
+.top-zero{    margin-top: 2px;}
+.border-left {border-left-width: medium;
+    border-left-style: solid;
+    border-left-color: #545454;}
+
+.border-right {border-right-width: medium;
+    border-right-style: solid;
+    border-right-color: #545454;}
+
+.top-space {margin-top:30px;}
+.left-space {padding-left:20px;}
+.right-space {padding-right:20px;}
