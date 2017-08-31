@@ -3,6 +3,11 @@ font-weight: 300;
 color: #333333}
 h2{font-family: 'Open Sans', sans-serif;
 font-weight: 300;}
+h3{font-size: 15px;
+font-weight: 400;
+
+    line-height: 0;
+  margin:0.8rem 0 1.168rem 0}
 
 
 #header { background-image: linear-gradient(to top, #A8EDEA 0%, #CDE3E7 100%);}
@@ -16,18 +21,19 @@ header img {width:200px;}
    font-size: 1.5rem;
 }
 
-#apps img {width: 80px; 
+#apps img {width: 85px; 
 margin-right: 20px;}
 
 
 #apps h2 {    margin-top: 0.7rem ;}
 
 #apps .app {line-height: 1.2;}
-#apps a{color: #333333;}
-
-.app:hover{color:darkcyan;}
-
-
+#apps .link{
+    color: #1de9b6;
+}
+#apps .link:hover {
+    color: #f33093;
+}
 
 #work { background-image: linear-gradient(to top, #DFFACD 0%, #ADEFDE 100%);}
 #work a {font-weight: 400;}
@@ -81,4 +87,5 @@ margin-right: 20px;}
     
     }
 
-
+#test {display: none;}
+#test2 {display: none;}
