@@ -1,91 +1,133 @@
 <!DOCTYPE html>
-  <html>
+<html>
     <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/custom.css"  media="screen,projection"/>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Reenie+Beanie" rel="stylesheet">
-          <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Reenie+Beanie" rel="stylesheet">
+      
 
-        
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
     <body>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-        
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script  type="text/javascript"></script><script src="js/animatescroll.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
         <div class="row section" id="header">
             <header class="container center-align">
                 <h1 class="name">SerenaDose</h1>
-        <p class="description">Web Designer / Computer Science Student</p>
+                <p class="description">Web Designer / Computer Science Student</p>
                 <img alt="" src="img/io.png">
             </header>
         </div>
-        
+
         <!--apps-->
-      <div class="row section" id="apps">
-        <section class="container ">
-            <div class="col l6 offset-l3  s11 offset-s1 left-align center-align">
-                <p>Never, never assume that what you have achieved is fucking good enough. worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. </p></div>
-         
-            <div class="col l4 m4 s11 offset-s1 top-space app "><img alt="" src="img/game15Logo.png" class="left"> <h3>GAME15</h3><p>iOS app<br>Grafica e codice<br><a href="#test" class="link" id="showr">vedi app</a></p></div>
-            <div class="col l4 m4 s11 offset-s1 top-space app"><img alt="" src="img/squirrel.png" class="left">  <h3>SQUIRREL</h3><p>iOS app<br>Grafica e logo<br><span class="link" id="hidr">vedi app</span></p></div>
-            <div class="col l4 m4 s12 hide-on-small-only border-left top-space "><h2 class="left-space">APPS</h2></div>
-          </section>
+        <div class="row section" id="apps">
+            <section class="container ">
+                <div class="col l6 offset-l3  s11 offset-s1 left-align center-align">
+                    <p>Never, never assume that what you have achieved is fucking good enough. worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. </p>
+                </div>
+                <div class="col l4 m4 s11 offset-s1 top-space app " onclick="$('#showr').animatescroll({scrollSpeed:500,easing:'easeInQuad'});"  id="showr">
+                    <img alt="" src="img/game15Logo.png" class="left"> 
+                    <h3>GAME15</h3>
+                    <p>iOS app<br>Grafica e codice<br><span class="link" >vedi app</span></p>
+                </div>
+                <div class="col l4 m4 s11 offset-s1 top-space app" onclick="$('#hidr').animatescroll({scrollSpeed:500,easing:'easeInQuad'});"  id="hidr">
+                    <img alt="" src="img/squirrel.png" class="left">  
+                    <h3>SQUIRREL</h3>
+                    <p>iOS app<br>Grafica e logo<br><span class="link" >vedi app</span></p>
+                </div>
+                <div class="col l4 m4 s12 hide-on-small-only border-left top-space ">
+                    <h2 class="left-space">APPS</h2>
+                </div>
+            </section>
         </div>
-        
-        
-        
-         <!--test-->
-      <div class="row section" id="test" style="background-color:#fefefe">
-        <section class="container top-space">
-            
-            <img src="img/Screen%20Shot%202017-08-31%20at%2010.46.12%20PM.png" width="90%">
-              
-          </section>
+
+
+
+        <!--test-->
+        <div class="row section" id="test" style="background-color:floralwhite">
+            <section class="container">
+                <div class="col l4 m4 s11 offset-s1 top-space app ">
+                    <img src="img/bluetheme.png" width="100%">
+                </div>
+                <div class="col l4 m4 s11 offset-s1 top-space app ">
+                    <img src="img/lighttheme.png" width="101%">
+                </div>
+                <div class="col l4 m4 s11 offset-s1 top-space app ">
+                    <h3>GAME15</h3>
+
+                    <p>Never, never assume that what you have achieved is fucking good enough. worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. </p>
+                    <p>Never, never assume that what you have achieved is fucking good enough. worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. </p>
+                    <p>Clone op GitHub<br>
+                    App Store</p>
+                </div>
+            </section>
         </div>
-         <div class="row section" id="test2" style="background-color:#fefefe">
-        <section class="container top-space">
-            
-            <img src="img/Screen%20Shot%202017-08-31%20at%2010.46.12%20PM.png" width="90%">
-              
-          </section>
+
+
+
+        <div class="row" id="test2" style="background-color:#fefefe">
+            <section class="container">
+
+                <div class="col l4 m4 s11 offset-s1 top-space app ">
+                    <img src="img/bluetheme.png" width="100%">
+                </div>
+                <div class="col l4 m4 s11 offset-s1 top-space app ">
+                    <img src="img/lighttheme.png" width="101%">
+                </div>
+                <div class="col l4 m4 s11 offset-s1 top-space app ">
+                    <h3>GAME15</h3>
+
+                    <p>Never, never assume that what you have achieved is fucking good enough. worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. </p>
+                    <p>Never, never assume that what you have achieved is fucking good enough. worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. </p>
+                    <p>Clone op GitHub<br>
+                    App Store</p>
+                </div>
+            </section>
         </div>
-        
-        <script>
-$( "#showr" ).click(function() { $( "#test" ).show( "slow" );
-                                 $( "#test2" ).hide( 1000 );
-});
- 
-$( "#hidr" ).click(function() {
-  $( "#test" ).hide( 1000 );
-    $( "#test2" ).show( "slow" );
-});
-</script>
-        
+
+
+
         <!--work-->
-      <div class="row section" id="work">
-        <section class="container top-space">
-            
-            <div class="col l3  right-align "><h2 class="right-space">WORK</h2></div>
-            <div class="col l9 border-left">
-                <p class="left-space ">Don’t worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. Never let your guard down by thinking you’re fucking good enough. Don’t worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough.
-<br><br>
- Never let your guard down by thinking you’re fucking good enough.Don’t worry about what other people fucking think.Don’t worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough.
-                    <br><br>
-<a class="waves-effect waves-light btn  teal accent-3">Curriculum</a></p></div>
-              
-          </section>
+        <div class="row section" id="work">
+            <section class="container top-space">
+
+                <div class="col l3  right-align "><h2 class="right-space">WORK</h2></div>
+                <div class="col l9 border-left">
+                    <p class="left-space ">Don’t worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough. Never let your guard down by thinking you’re fucking good enough. Don’t worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough.
+                        <br><br>
+                        Never let your guard down by thinking you’re fucking good enough.Don’t worry about what other people fucking think.Don’t worry about what other people fucking think. Never, never assume that what you have achieved is fucking good enough.
+                        <br><br>
+                        <a class="waves-effect waves-light btn  teal accent-3">Curriculum</a></p></div>
+
+            </section>
         </div>
-        
-        
-        
-        <div class="fixed-left" ><a href="https://www.linkedin.com/in/serena-dose-32930577?trk=nav_responsive_tab_profile_pic" target="_blank">LinkedIn</a> | <a href="https://www.twitter.com/_SerenaDose" target="_blank">Twitter</a></div>
+
+
+
+        <div class="fixed-left" ><a href="https://www.linkedin.com/in/serena-dose-32930577?trk=nav_responsive_tab_profile_pic" target="_blank">LinkedIn</a> | <a href="https://github.com/SerenaDose" target="_blank">GitHub</a></div>
+
+        <!--jquery-->
+        <script>
+            $( "#showr" ).click(function() { $( "#test" ).show( "slow" );
+                                            $( "#test2" ).hide( 1000 );
+                                           });
+
+            $( "#hidr" ).click(function() {
+                $( "#test" ).hide( 1000 );
+                $( "#test2" ).show( "slow" );
+            });
+
+
+        </script>
     </body>
-  </html>
-        
+</html>
