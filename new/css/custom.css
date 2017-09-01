@@ -32,9 +32,11 @@ margin-right: 20px;}
     color: #1de9b6;
 }
 #apps .link:hover {
-    color: #f33093;
+    color: #67B7B8;
 }
-
+#hidr:hover{
+    cursor: pointer;
+}
 #work { background-image: linear-gradient(to top, #DFFACD 0%, #ADEFDE 100%);}
 #work a {font-weight: 400;}
 
