@@ -1,94 +1,176 @@
-body {font-family: 'Open Sans', sans-serif;
-font-weight: 300;
-color: #333333}
-h2{font-family: 'Open Sans', sans-serif;
-font-weight: 300;}
-h3{font-size: 15px;
-font-weight: 400;
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #333333
+}
 
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 15px;
+    font-weight: 400;
     line-height: 0;
-  margin:0.8rem 0 1.168rem 0}
+    margin:0.8rem 0 1.168rem 0
+}
 
+#header { 
+    background-image: linear-gradient(to top, #A8EDEA 0%, #CDE3E7 100%);
+}
 
-#header { background-image: linear-gradient(to top, #A8EDEA 0%, #CDE3E7 100%);}
-header img {width:200px;}
-.name {font-size: 2.5rem;
+header img {
+    width:200px;
+}
+
+.name {
+    font-size: 2.5rem;
     font-weight: 300;
     line-height: 0%;
 }
+
 .description {
     font-family: 'Reenie Beanie', cursive;
-   font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
-#apps img {width: 85px; 
-margin-right: 20px;}
+#apps img {
+    width: 85px; 
+    margin-right: 20px;
+}
 
+#apps h2 {    
+    margin-top: 0.7rem ;
+}
 
-#apps h2 {    margin-top: 0.7rem ;}
+#apps .app {
+    line-height: 1.2;
+}
 
-#apps .app {line-height: 1.2;}
 #apps .link{
     color: #1de9b6;
 }
+
 #apps .link:hover {
     color: #67B7B8;
 }
+
 #hidr:hover{
     cursor: pointer;
 }
-#work { background-image: linear-gradient(to top, #DFFACD 0%, #ADEFDE 100%);}
-#work a {font-weight: 400;}
+
+#work { 
+    background-image: linear-gradient(to top, #DFFACD 0%, #ADEFDE 100%);
+}
+
+#work a {
+    font-weight: 400;
+}
+.app{
+    cursor: pointer;
+}
+
+.upper{
+    text-transform: uppercase;
+}
 
 .section {
     padding-top: 3rem;
     padding-bottom: 4rem;
 }
+
 .row {
     margin-bottom: 0px;
 }
-.top-zero{    margin-top: 2px;}
-.border-left {border-left-width: medium;
+
+.top-zero{    
+    margin-top: 2px;
+}
+
+.border-left {
+    border-left-width: medium;
     border-left-style: solid;
-    border-left-color: #545454;}
+    border-left-color: #545454;
+}
 
-.border-right {border-right-width: medium;
+.border-right {
+    border-right-width: medium;
     border-right-style: solid;
-    border-right-color: #545454;}
+    border-right-color: #545454;
+}
 
-.top-space {margin-top:30px;}
-.left-space {padding-left:20px;}
-.right-space {padding-right:20px;}
+.top-space {
+    margin-top:30px;
+}
+.left-space {
+    padding-left:20px;
+}
+.right-space {
+    padding-right:20px;
+}
 
-
-.fixed-left {transform: rotate(270deg) ;
--webkit-transform: rotate(270deg) ;
--moz-transform: rotate(270deg) ;
--o-transform: rotate(270deg) ;
--ms-transform: rotate(270deg) ;
-       
+.fixed-left {
+    transform: rotate(270deg) ;
+    -webkit-transform: rotate(270deg) ;
+    -moz-transform: rotate(270deg) ;
+    -o-transform: rotate(270deg) ;
+    -ms-transform: rotate(270deg) ;
     position: fixed;
-    bottom: 10%;
-    left: -10px;}
+    bottom: 11%;
+    left: -10px;
 
-.fixed-left a {color: #333333}
+}
+
+.fixed-left a {
+    color: #333333
+}
+
+#play15 {
+    display: none;
+    background-color:#E7FFE8";
+}
+#squirrel {
+    display: none;
+    background-color:#2E7A96;
+}
+#foodmates{
+    background-color:#FCF9EF;
+}
+
+.label{
+    background-color: #f4fbfab8;
+    padding: 2px 8px;
+}
+
 @media (min-width:0px) and (max-width:600px){
+    
     .section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-    #work .top-space{margin-top: 0px; }
-    .border-left {border-left-width:0;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
+    
+    #work .top-space{
+        margin-top: 0px; 
+    }
+    
+    .border-left {
+        border-left-width:0;
+    }
+    
     .fixed-left {
-          left: -40px;}
-    .app {margin-left: 40px;}
-    .left-align{text-align: left;}
-    #work h2{    padding-left: 20px;}
-    
-    
+        left: -40px;
     }
-
-#test {display: none;}
-#test2 {display: none;
+    
+    .app {
+        margin-left: 40px;
+    }
+    
+    .left-align{
+        text-align: left;
+    }
+    #work h2{    
+        padding-left: 20px;
+    }
 }
+
