@@ -128,13 +128,14 @@ header img {
 
 #play15 {
     display: none;
-    background-color:#E7FFE8";
+    background-color:#E7FFE8;
 }
 #squirrel {
     display: none;
     background-color:#2E7A96;
 }
 #foodmates{
+    display: none;
     background-color:#FCF9EF;
 }
 
