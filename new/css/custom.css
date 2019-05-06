@@ -117,7 +117,7 @@ header img {
     -o-transform: rotate(270deg) ;
     -ms-transform: rotate(270deg) ;
     position: fixed;
-    bottom: 11%;
+    bottom: 10%;
     left: -10px;
 
 }
@@ -161,6 +161,7 @@ header img {
     
     .fixed-left {
         left: -40px;
+        bottom:10%;
     }
     
     .app {
