@@ -48,12 +48,20 @@ header img {
     line-height: 1.2;
 }
 
-#apps .link{
+.link{
     color: #1de9b6;
 }
 
-#apps .link:hover {
+.link:hover {
     color: #67B7B8;
+}
+
+.link-dark{
+    color: #67B7B8;
+}
+
+.link-dark:hover {
+    color: #1de9b6;
 }
 
 #hidr:hover{
@@ -161,7 +169,7 @@ header img {
     
     .fixed-left {
         left: -40px;
-        bottom:10%;
+        bottom:11%;
     }
     
     .app {
