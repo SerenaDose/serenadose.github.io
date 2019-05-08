@@ -50,6 +50,7 @@ header img {
 
 .link{
     color: #1de9b6;
+    font-weight: 400;
 }
 
 .link:hover {
@@ -58,15 +59,13 @@ header img {
 
 .link-dark{
     color: #67B7B8;
+    font-weight: 400;
 }
 
 .link-dark:hover {
     color: #1de9b6;
 }
 
-#hidr:hover{
-    cursor: pointer;
-}
 
 #work { 
     background-image: linear-gradient(to top, #DFFACD 0%, #ADEFDE 100%);
@@ -145,6 +144,14 @@ header img {
 #foodmates{
     display: none;
     background-color:#FCF9EF;
+}
+
+footer{
+    background-color: #ddfacd;
+}
+.footer-copyright{
+        border-top: 1px solid #888585;
+    font-size: 12px;
 }
 
 .label{
