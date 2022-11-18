@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+
+
+
+.button {
+  background-color: #f4bc00; 
+  border: none;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: left corner;
+  font-size:18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius : 20px;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  
+}
+
+div {
+  background-color: lightgrey;
+  text-align: center;
+
+  border: none;
+  padding:8px;
+  margin:5px;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  border-radius : 10px;
+}
+
+</style>
+
+<div>Designed with love by S & D (mainly by D, pls don't fire S) </div>
+
+
+	<button class="button"  onclick="myFunction()">Alle scale, <br> PIACE CAMBIARE!!</button>
+
+	<script>
+	function getRndInteger(min, max) {
+ 	 return Math.floor(Math.random() * (max - min)) + min;
+}
+	function myFunction() {
+	var numero = getRndInteger(1,4);
+		if (numero == 1)
+  		document.body.style.backgroundColor = "#b10808";
+  			else
+       	 	if (numero == 2)
+        	document.body.style.backgroundColor = "#01482b";
+        		else document.body.style.backgroundColor = "#0111d7";         
+}
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
