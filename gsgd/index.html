@@ -4,30 +4,44 @@
 <style>
 
     
-  .left{
-  float:left;
+ h3 {
+   display: inline-block;
+   width: 30%;
+   text-align: left;
+   color: #555555;
+      }
+      
+  input{
+  width=100%;
+  padding:10px;
+  box-sizing: border-box;
+  width: 60%;
+  border: 2px solid #5F9EA0;
   }
-  .right{
-  float:right;
-  }
+  input:focus {
+  border: 2px solid #5F9EA0;
+}
   
 </style>
 
 
 
-<h3>Manzo	
-<input class="right" onchange="myFunction(this.id, this.value)" type="number" id="manzo" value="0"></h3> 
-<h3>Pollo   	
-<input class="right" onchange="myFunction(this.id, this.value)" type="number" id="pollo" value="0"></h3> 
-<h3>Tacchino    	 
-<input class="right" onchange="myFunction(this.id, this.value)" type="number" id="tacchino" value="0"></h3> 
-<h3>PrtPowder[g]    	 
-<input  class="right" onchange="myFunction(this.id, this.value)" type="number" id="PrtPowder" value="0"></h3> 
+<div><h3>Manzo</h3>	
+<input  onchange="myFunction(this.id, this.value)" type="number" id="manzo" value="0"></div>
+
+<div><h3>Pollo  </h3>	 	
+<input  onchange="myFunction(this.id, this.value)" type="number" id="pollo" value="0"></div>
+
+<div><h3>Tacchino    </h3>		 
+<input  onchange="myFunction(this.id, this.value)" type="number" id="tacchino" value="0"></div>
+
+<div><h3>PrtPowder[g]    </h3>		 
+<input onchange="myFunction(this.id, this.value)" type="number" id="PrtPowder" value="0"> </div>
 
 
 
 
-<p id="demo"></p>
+<h3 id="demo"></p>
 
 <script>
 let food = [
@@ -62,7 +76,7 @@ food.forEach(materia => {
 somma= materia.proteine*materia.qta+somma; 
 });
 
-  		document.getElementById("demo").innerHTML =somma;
+  		document.getElementById("demo").innerHTML = "Hai assunto: " + somma + " proteine";
 }
 </script>
 
