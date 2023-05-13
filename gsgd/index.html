@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+
+    
+  .left{
+  float:left;
+  }
+  .right{
+  float:right;
+  }
+  
+</style>
+
+
+
+<h3>Manzo	
+<input class="right" onchange="myFunction(this.id, this.value)" type="number" id="manzo" value="0"></h3> 
+<h3>Pollo   	
+<input class="right" onchange="myFunction(this.id, this.value)" type="number" id="pollo" value="0"></h3> 
+<h3>Tacchino    	 
+<input class="right" onchange="myFunction(this.id, this.value)" type="number" id="tacchino" value="0"></h3> 
+<h3>PrtPowder[g]    	 
+<input  class="right" onchange="myFunction(this.id, this.value)" type="number" id="PrtPowder" value="0"></h3> 
+
+
+
+
+<p id="demo"></p>
+
+<script>
+let food = [
+  {"id": "manzo",
+    "proteine": 26,
+    "qta": 0,
+      },
+ {"id": "pollo",
+    "proteine": 27,
+    "qta": 0,
+      }, 
+ {"id":"tacchino",
+ "proteine": 29, 
+    "qta": 0,
+      },
+ {"id":"PrtPowder",
+ "proteine": 1, 
+    "qta": 0,
+      }
+ 
+]
+  
+	function myFunction(tipo,quanto) {
+    
+ 	indice =food.findIndex((obj => obj.id == tipo));
+    
+    food[indice].qta = quanto;
+
+let somma = 0;
+
+food.forEach(materia => {
+somma= materia.proteine*materia.qta+somma; 
+});
+
+  		document.getElementById("demo").innerHTML =somma;
+}
+</script>
+
+</body>
+</html>
