@@ -38,7 +38,7 @@ body{
 @supports (padding: max(0px)) {
   body {
     padding-top: max(24px, env(safe-area-inset-top));
-   // padding-bottom: max(24px, env(safe-area-inset-bottom));
+   /* padding-bottom: max(24px, env(safe-area-inset-bottom));*/
   }
 }
     /* neve animata */
@@ -120,16 +120,18 @@ body{
   <div class="wrap" role="main">
     <header>
       <div>
-        <h1>Calendario dell'Avvento</h1>
-        <p class="lead">Click su una casella per aprire (si sblocca nel giorno corrispondente).</p>
+        <h1>Calendario dell'Avvento di strucolotto
+
+        </h1>
+        
       </div>
-      <div class="hint">Preview: <code>?preview=1</code> o tieni Shift mentre clicchi</div>
+      
     </header>
 
     <main>
       <div class="grid" id="grid"></div>
       <footer>
-        <div>Realizzato per GitHub Pages — modifica i testi nel file HTML per personalizzare.</div>
+        <div></div>
       </footer>
     </main>
   </div>
@@ -173,6 +175,11 @@ body{
       "🌠 È la vigilia! Goditi l'attesa e sorridi."
     ];
 
+    const images = [
+  "background.jpg",
+  "giorno2.jpg",
+];
+
     const grid = document.getElementById('grid');
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modalTitle');
@@ -200,8 +207,12 @@ body{
       const el = document.createElement('div');
       el.className = 'door';
       el.setAttribute('data-day', n);
-      el.setAttribute('data-content', `<div style='line-height:1.5'>${messages[n-1]}</div>`);
-
+      el.setAttribute('data-content', `
+  <div style='text-align:center; line-height:1.5'>
+    <p>${messages[n-1]}</p>
+    <img src="${images[n-1]}" style="max-width:100%; border-radius:10px; margin-top:10px">
+  </div>
+`);
       const num = document.createElement('div');
       num.className = 'num';
       num.textContent = n;
@@ -215,7 +226,7 @@ body{
       if(opened.includes(n)) el.classList.add('opened');
       if(!isUnlocked(n)){
         el.classList.add('locked');
-        label.textContent = 'Bloccata';
+       label.textContent = 'Bloccata';
       }
 
       el.addEventListener('click', (ev)=>{
@@ -228,7 +239,7 @@ body{
           el.classList.add('opened');
         }
         const content = el.getAttribute('data-content') || messages[n-1];
-        modalTitle.textContent = `Giorno ${n}`;
+        modalTitle.textContent = `${n} Dicembre`;
         modalBody.innerHTML = content;
         modal.classList.add('active');
         modal.setAttribute('aria-hidden','false');
@@ -265,13 +276,14 @@ body{
       snowflake.style.left = Math.random() * window.innerWidth + 'px';
       snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
       snowflake.style.opacity = Math.random();
-      const duration = 5 + Math.random() * 10;
+      let duration = 5 + Math.random() * 10;
+      duration = duration*2;
       snowflake.style.animationDuration = duration + 's';
       document.body.appendChild(snowflake);
       setTimeout(() => snowflake.remove(), duration * 1000);
     }
 
-    setInterval(createSnowflake, 250);
+    setInterval(createSnowflake, 800);
   </script>
 </body>
 </html>
