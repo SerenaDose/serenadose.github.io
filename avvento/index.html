@@ -14,19 +14,33 @@
       --door-size:calc((min(100vw,900px) - 48px) / 6);
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    body{
-      /* background fixed */
-      background:url('background.jpg') no-repeat center center fixed;
-      background-size:cover;
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-      overflow:hidden; /* page shouldn't scroll — the calendar container will */
-    }
+html,body{
+  height:100dvh;
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:url('background.jpg') no-repeat center center fixed;
+  background-size:cover;
+  background-attachment:fixed;
+  background-color:#0f1724; /* fallback per il caricamento */
+  color:var(--text);
+}
 
+/* body come contenitore flessibile */
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  overflow:hidden;
+}
+
+/* estende il background dietro alle aree “safe” di Safari iOS */
+@supports (padding: max(0px)) {
+  body {
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+}
     /* neve animata */
     .snowflake {
       position: fixed;
