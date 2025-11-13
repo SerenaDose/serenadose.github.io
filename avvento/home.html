@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Calendario dell'Avvento</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#4b2b1f;
+      --accent:#ffffff;
+      --text:#f8fafc;
+      --muted:#d7bfa8;
+      --door-size:calc((min(100vw,900px) - 48px) / 6);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{
+      background:url('background.jpg') no-repeat center center fixed;
+      background-size:cover;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      overflow:hidden;
+    }
+
+    /* neve animata */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      user-select: none;
+      pointer-events: none;
+      z-index: 9999;
+      animation-name: fall;
+      animation-timing-function: linear;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0.8; }
+    }
+
+    .wrap{max-width:980px;width:100%;backdrop-filter:blur(6px);background:rgba(0,0,0,0.5);border-radius:16px;padding:16px;}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    h1{font-size:1.25rem;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:0.95rem}
+
+    .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+    .door{
+      background:linear-gradient(180deg,#642b1c 0%, #3c1a10 100%);
+      border-radius:12px;
+      min-height:var(--door-size);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      cursor:pointer;
+      overflow:hidden;
+      padding:8px;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .door:hover:not(.locked){transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.4)}
+    .door.locked{filter:grayscale(40%) brightness(0.85);cursor:default}
+    .door .num{font-weight:700;font-size:1.1rem}
+    .door .label{position:absolute;right:8px;top:8px;background:rgba(0,0,0,0.3);padding:6px 8px;border-radius:999px;font-size:0.75rem}
+    .door.opened{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.6)}
+
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:40;padding:20px;visibility:hidden;opacity:0;transition:opacity .18s ease,visibility .18s}
+    .modal.active{visibility:visible;opacity:1}
+    .panel{max-width:700px;width:100%;background:#541304;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.1)}
+    .panel h2{margin:0 0 8px 0;color:var(--accent)}
+    .panel .body{color:var(--muted);margin-bottom:12px}
+    .panel .close{background:transparent;border:1px solid rgba(255,255,255,0.1);padding:8px 12px;border-radius:8px;color:var(--text);cursor:pointer}
+
+    footer{margin-top:12px;color:var(--muted);font-size:0.9rem}
+
+    @media (max-width:700px){
+      .grid{grid-template-columns:repeat(4,1fr)}
+      :root{--door-size:calc((min(100vw,520px) - 32px) / 4)}
+    }
+    @media (max-width:420px){
+      .grid{grid-template-columns:repeat(3,1fr)}
+      :root{--door-size:calc((min(100vw,360px) - 24px) / 3)}
+    }
+
+    .hint{font-size:0.85rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Calendario dell'Avvento</h1>
+        <p class="lead">Click su una casella per aprire (si sblocca nel giorno corrispondente).</p>
+      </div>
+      <div class="hint">Preview: <code>?preview=1</code> o tieni Shift mentre clicchi</div>
+    </header>
+
+    <main>
+      <div class="grid" id="grid"></div>
+      <footer>
+        <div>Realizzato per GitHub Pages — modifica i testi nel file HTML per personalizzare.</div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="panel" role="dialog" aria-modal="true">
+      <h2 id="modalTitle">Contenuto</h2>
+      <div class="body" id="modalBody"></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button class="close" id="modalClose">Chiudi</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const totalDays = 24;
+    const messages = [
+      "🎄 Benvenuto al primo giorno del calendario!Benvenuto al primo giorno del calendario!Benvenuto al primo giorno del calendario!Benvenuto al primo giorno del calendario!", 
+      "✨ Oggi è il momento di fare qualcosa che ti renda felice!", 
+      "🎁 Ricorda di sorridere oggi!", 
+      "❄️ Prenditi una pausa e goditi un momento di pace.", 
+      "🍪 Mangia un biscotto o qualcosa di dolce.", 
+      "🌟 Scrivi un messaggio gentile a qualcuno.", 
+      "🔥 Accendi una candela e rilassati.", 
+      "🎶 Ascolta la tua canzone natalizia preferita.", 
+      "🎬 Guarda un film di Natale.", 
+      "☕ Prepara una bevanda calda e gustala con calma.", 
+      "🎨 Crea qualcosa di piccolo: un disegno, una decorazione.", 
+      "💌 Scrivi una lettera o un biglietto a una persona cara.", 
+      "🧦 Metti le tue calze più comode!", 
+      "🎉 Festeggia un piccolo successo della settimana.", 
+      "📚 Leggi un capitolo di un libro che ti piace.", 
+      "🌌 Esci a guardare le luci o il cielo notturno.", 
+      "🍫 Concediti un piccolo dolce.", 
+      "💫 Fai una buona azione anonima.", 
+      "🎄 Addobba qualcosa in casa.", 
+      "📷 Scatta una foto di qualcosa che ti fa sorridere.", 
+      "💖 Ringrazia qualcuno oggi.", 
+      "🎁 Prepara un piccolo regalo per qualcuno.", 
+      "🎅 Ricorda di essere gentile con te stesso.", 
+      "🌠 È la vigilia! Goditi l'attesa e sorridi."
+    ];
+
+    const grid = document.getElementById('grid');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+
+    const urlParams = new URLSearchParams(location.search);
+    const globalPreview = urlParams.get('preview') === '1';
+
+    const openedKey = 'advent_opened_v1';
+    let opened = JSON.parse(localStorage.getItem(openedKey) || '[]');
+    function saveOpened(){ localStorage.setItem(openedKey, JSON.stringify(opened)); }
+
+    function isUnlocked(day){
+      if(globalPreview) return true;
+      const now = new Date();
+      const month = now.getMonth();
+      const today = now.getDate();
+      if(month > 11) return true;
+      if(month < 11) return false;
+      return today >= day;
+    }
+
+    function makeDoor(n){
+      const el = document.createElement('div');
+      el.className = 'door';
+      el.setAttribute('data-day', n);
+      el.setAttribute('data-content', `<div style='line-height:1.5'>${messages[n-1]}</div>`);
+
+      const num = document.createElement('div');
+      num.className = 'num';
+      num.textContent = n;
+      el.appendChild(num);
+
+      const label = document.createElement('div');
+      label.className = 'label';
+      label.textContent = 'Apri';
+      el.appendChild(label);
+
+      if(opened.includes(n)) el.classList.add('opened');
+      if(!isUnlocked(n)){
+        el.classList.add('locked');
+        label.textContent = 'Bloccata';
+      }
+
+      el.addEventListener('click', (ev)=>{
+        const shiftPreview = ev.shiftKey;
+        const preview = globalPreview || shiftPreview;
+        if(!isUnlocked(n) && !preview) return;
+        if(!opened.includes(n)){
+          opened.push(n);
+          saveOpened();
+          el.classList.add('opened');
+        }
+        const content = el.getAttribute('data-content') || messages[n-1];
+        modalTitle.textContent = `Giorno ${n}`;
+        modalBody.innerHTML = content;
+        modal.classList.add('active');
+      });
+
+      el.addEventListener('contextmenu', (e)=>{
+        e.preventDefault();
+        const old = el.getAttribute('data-content') || '';
+        const newc = prompt(`Modifica contenuto del giorno ${n} (HTML accettato):`, old);
+        if(newc !== null){ el.setAttribute('data-content', newc); alert('Contenuto aggiornato in memoria della pagina. Copia nel file per renderlo permanente.'); }
+      });
+
+      return el;
+    }
+
+    for(let i=1;i<=totalDays;i++) grid.appendChild(makeDoor(i));
+
+    modalClose.addEventListener('click', ()=> modal.classList.remove('active'));
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.classList.remove('active'); });
+
+    window.addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase() === 'r' && (e.ctrlKey || e.metaKey)){
+        if(confirm('Resetti tutte le caselle aperte?')){ opened = []; saveOpened(); document.querySelectorAll('.door.opened').forEach(d=>d.classList.remove('opened')) }
+      }
+    });
+
+    // neve
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❅';
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
+      snowflake.style.opacity = Math.random();
+      const duration = 5 + Math.random() * 10;
+      snowflake.style.animationDuration = duration + 's';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), duration * 1000);
+    }
+
+    setInterval(createSnowflake, 250);
+  </script>
+</body>
+</html>
