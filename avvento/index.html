@@ -23,7 +23,8 @@
       align-items:center;
       justify-content:center;
       padding:24px;
-      overflow:hidden;
+      /* allow scrolling on small screens */
+      overflow:auto;
     }
 
     /* neve animata */
@@ -42,7 +43,13 @@
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0.8; }
     }
 
+    /* wrap: make scrollable when viewport is small */
     .wrap{max-width:980px;width:100%;backdrop-filter:blur(6px);background:rgba(0,0,0,0.5);border-radius:16px;padding:16px;}
+    /* when the viewport is short, allow the wrap to scroll internally */
+    @media (max-height:600px){
+      .wrap{max-height:calc(100vh - 48px);overflow:auto;padding-right:12px}
+    }
+
     header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
     h1{font-size:1.25rem;margin:0}
     p.lead{margin:0;color:var(--muted);font-size:0.95rem}
@@ -68,9 +75,9 @@
     .door .label{position:absolute;right:8px;top:8px;background:rgba(0,0,0,0.3);padding:6px 8px;border-radius:999px;font-size:0.75rem}
     .door.opened{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.6)}
 
-    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:40;padding:20px;visibility:hidden;opacity:0;transition:opacity .18s ease,visibility .18s}
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:10000;padding:20px;visibility:hidden;opacity:0;transition:opacity .18s ease,visibility .18s}
     .modal.active{visibility:visible;opacity:1}
-    .panel{max-width:700px;width:100%;background:#541304;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.1)}
+    .panel{max-width:700px;width:100%;background:#750D06;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
     .panel h2{margin:0 0 8px 0;color:var(--accent)}
     .panel .body{color:var(--muted);margin-bottom:12px}
     .panel .close{background:transparent;border:1px solid rgba(255,255,255,0.1);padding:8px 12px;border-radius:8px;color:var(--text);cursor:pointer}
@@ -120,7 +127,7 @@
   <script>
     const totalDays = 24;
     const messages = [
-      "🎄 Benvenuto al primo giorno del calendario!Benvenuto al primo giorno del calendario!Benvenuto al primo giorno del calendario!Benvenuto al primo giorno del calendario!", 
+      "🎄 Benvenuto al primo giorno del calendario!", 
       "✨ Oggi è il momento di fare qualcosa che ti renda felice!", 
       "🎁 Ricorda di sorridere oggi!", 
       "❄️ Prenditi una pausa e goditi un momento di pace.", 
