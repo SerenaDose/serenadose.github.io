@@ -16,6 +16,7 @@
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
     body{
+      /* background fixed */
       background:url('background.jpg') no-repeat center center fixed;
       background-size:cover;
       color:var(--text);
@@ -23,8 +24,7 @@
       align-items:center;
       justify-content:center;
       padding:24px;
-      /* allow scrolling on small screens */
-      overflow:auto;
+      overflow:hidden; /* page shouldn't scroll — the calendar container will */
     }
 
     /* neve animata */
@@ -43,11 +43,17 @@
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0.8; }
     }
 
-    /* wrap: make scrollable when viewport is small */
-    .wrap{max-width:980px;width:100%;backdrop-filter:blur(6px);background:rgba(0,0,0,0.5);border-radius:16px;padding:16px;}
-    /* when the viewport is short, allow the wrap to scroll internally */
-    @media (max-height:600px){
-      .wrap{max-height:calc(100vh - 48px);overflow:auto;padding-right:12px}
+    /* wrap: fixed-size container that scrolls internally */
+    .wrap{
+      width:100%;
+      max-width:980px;
+      max-height:calc(100vh - 48px);
+      overflow:auto; /* internal scroll */
+      -webkit-overflow-scrolling: touch;
+      backdrop-filter:blur(6px);
+      background:rgba(0,0,0,0.5);
+      border-radius:16px;
+      padding:16px;
     }
 
     header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
@@ -97,7 +103,7 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap" role="main">
     <header>
       <div>
         <h1>Calendario dell'Avvento</h1>
@@ -114,7 +120,7 @@
     </main>
   </div>
 
-  <div class="modal" id="modal">
+  <div class="modal" id="modal" aria-hidden="true">
     <div class="panel" role="dialog" aria-modal="true">
       <h2 id="modalTitle">Contenuto</h2>
       <div class="body" id="modalBody"></div>
@@ -211,6 +217,7 @@
         modalTitle.textContent = `Giorno ${n}`;
         modalBody.innerHTML = content;
         modal.classList.add('active');
+        modal.setAttribute('aria-hidden','false');
       });
 
       el.addEventListener('contextmenu', (e)=>{
@@ -225,10 +232,12 @@
 
     for(let i=1;i<=totalDays;i++) grid.appendChild(makeDoor(i));
 
-    modalClose.addEventListener('click', ()=> modal.classList.remove('active'));
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.classList.remove('active'); });
+    modalClose.addEventListener('click', ()=>{ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); });
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) { modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); } });
 
+    // keyboard accessibility: close with Escape
     window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){ if(modal.classList.contains('active')){ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); }}
       if(e.key.toLowerCase() === 'r' && (e.ctrlKey || e.metaKey)){
         if(confirm('Resetti tutte le caselle aperte?')){ opened = []; saveOpened(); document.querySelectorAll('.door.opened').forEach(d=>d.classList.remove('opened')) }
       }
